@@ -17,17 +17,22 @@ public class DropDownExample {
         driver.manage().window().maximize();
         driver.get("https://testautomationpractice.blogspot.com/");
 
-        WebElement dropDownElement = driver.findElement(By.xpath("//select[@id='country']"));
-        Select select = new Select(dropDownElement);
+        WebElement dropDownElement1 = driver.findElement(By.xpath("//select[@id='country']"));
+        Select select1 = new Select(dropDownElement1);
         //select.selectByVisibleText("China");
 
-        List<WebElement> alldropdownOptions = select.getOptions();
+        List<WebElement> alldropdownOptions = select1.getOptions();
 
         for(WebElement element : alldropdownOptions){
             if (element.getText().equals("India")){
                 element.click();
             }
         }
+
+        WebElement dropDownElement2 = driver.findElement(By.xpath("//select[@id='colors']"));
+        Select select2 = new Select(dropDownElement2);
+        select2.selectByIndex(5);
+
 
 
 
