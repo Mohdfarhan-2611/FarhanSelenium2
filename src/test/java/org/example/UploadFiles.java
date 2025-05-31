@@ -18,6 +18,7 @@ public class UploadFiles {
 
         WebElement chooseFiles = driver.findElement(By.xpath("//input[@id='singleFileInput']"));
         chooseFiles.sendKeys("C:/Users/mhdfa/Downloads/Setup_Java_Git_GitHub_Guide.docx");
+        //chooseFiles.sendKeys("C:/Users/mhdfa/Downloads/9MnVqQRqyRrwfk2G1YieBE.pdf");
 
         WebElement uploadsingleFiles = driver.findElement(By.xpath("//button[text()='Upload Single File']"));
         uploadsingleFiles.click();
@@ -28,14 +29,6 @@ public class UploadFiles {
         Assert.assertEquals(textValue,"Single file selected: Setup_Java_Git_GitHub_Guide.docx, Size: 1144578 bytes, Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document");
         System.out.println(textValue);
         System.out.println("Text verified");
-
-
-
-
-
-
-
-
 
     }
 
