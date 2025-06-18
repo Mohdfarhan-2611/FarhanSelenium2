@@ -33,10 +33,12 @@ public class HandleWindow {
         Set<String> allWindows = driver.getWindowHandles();
         System.out.println(allWindows);
 
-        for (String a : allWindows) {
-            if (!a.equals(firstWindow)) {
+        for (String a : allWindows)
+        {
+            if (!a.equals(firstWindow))
+            {
                 driver.switchTo().window(a);
-                a = driver.getWindowHandle();
+               // a = driver.getWindowHandle();
                 System.out.println("second window " + a);
                 System.out.println(driver.getTitle());
                 System.out.println(driver.getCurrentUrl());
