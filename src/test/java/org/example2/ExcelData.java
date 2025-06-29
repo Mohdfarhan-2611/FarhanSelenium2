@@ -29,7 +29,7 @@ public class ExcelData {
         XSSFWorkbook xssfWorkbook = new XSSFWorkbook(fis);
         XSSFSheet xssfSheet = xssfWorkbook.getSheet("TestData");
         Iterator<Row> rowIterator =  xssfSheet.iterator();
-        rowIterator.next(); //skip column
+        rowIterator.next(); //skip first row
         Row row;
         Cell nameCell=null;
         Cell emailCell=null;
@@ -67,36 +67,36 @@ public class ExcelData {
 
 
 
-    @Test
-    public void writeDataToExcel() throws IOException {
-        File file = new File(System.getProperty("user.dir") + "/src/test/java/org/example2/AutomationTestData.xlsx");
-
-        // Open existing workbook
-        FileInputStream fis = new FileInputStream(file);
-        XSSFWorkbook workbook = new XSSFWorkbook(fis);
-        XSSFSheet sheet = workbook.getSheet("TestData");
-
-        // Find the last row number and add 1 for new row
-        int lastRowNum = sheet.getLastRowNum();
-        Row newRow = sheet.createRow(lastRowNum + 1);
-
-        // Add data to new row
-        newRow.createCell(0).setCellValue("Mohammad Farhan");
-        newRow.createCell(1).setCellValue("farhan@example.com");
-        newRow.createCell(2).setCellValue("9876543210");
-
-        // Close input stream before writing
-        fis.close();
-
-        // Now open output stream to write changes
-        try (FileOutputStream fos = new FileOutputStream(file)) {
-            workbook.write(fos);
-        }
-
-        workbook.close();
-
-        System.out.println("✅ Data appended successfully to Excel.");
-    }
+//    @Test
+//    public void writeDataToExcel() throws IOException {
+//        File file = new File(System.getProperty("user.dir") + "/src/test/java/org/example2/AutomationTestData.xlsx");
+//
+//        // Open existing workbook
+//        FileInputStream fis = new FileInputStream(file);
+//        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+//        XSSFSheet sheet = workbook.getSheet("TestData");
+//
+//        // Find the last row number and add 1 for new row
+//        int lastRowNum = sheet.getLastRowNum();
+//        Row newRow = sheet.createRow(lastRowNum + 1);
+//
+//        // Add data to new row
+//        newRow.createCell(0).setCellValue("Mohammad Farhan");
+//        newRow.createCell(1).setCellValue("farhan@example.com");
+//        newRow.createCell(2).setCellValue("9876543210");
+//
+//        // Close input stream before writing
+//        fis.close();
+//
+//        // Now open output stream to write changes
+//        try (FileOutputStream fos = new FileOutputStream(file)) {
+//            workbook.write(fos);
+//        }
+//
+//        workbook.close();
+//
+//        System.out.println("Data appended successfully to Excel.");
+//    }
 
 }
 
